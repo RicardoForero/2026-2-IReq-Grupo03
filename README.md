@@ -12,6 +12,7 @@ Descomponer las metas de alto nivel de la organización en submetas refinadas, h
 - **Obstáculos (*Obstacles*):** Posibles situaciones que impidan el cumplimiento de una meta y sus respectivas contramedidas.
 
 ## Contenidos del Directorio
-- **`definicion_metas.md`**: Listado jerárquico de metas identificadas a partir de las entrevistas y el kickoff.
-- **`refinamiento.md`**: Diagramas o tablas de descomposición (AND/OR).
-- **`conflictos.md`**: Análisis de posibles oposiciones entre metas y sus resoluciones.
+- **`Arbol_de_Metas_KAOS.pdf.md`**: Arbol de metas KAOS con dientificacion de metas requisitos expectativas y  obstaculos.
+- **`Casos_de_uso_SICIRD_KAOS.pdf`**: Casos de uso deocumentados en el formato requerido.
+- **`historia-usuario HU-01.pdf y historia-usuario HU-02.pdf`**: Historias de usuario documentadas en el formato requerido.
+- **`README.md`**: Descripcion del directorio 
