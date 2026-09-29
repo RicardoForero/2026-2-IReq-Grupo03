@@ -6,7 +6,8 @@ Este directorio centraliza la metodología, las guías de preguntas y los regist
 Recabar información cualitativa de primera mano para identificar necesidades, problemas actuales, restricciones técnicas y los objetivos ocultos o explícitos de los usuarios y patrocinadores.
 
 ## Contenido del Directorio
-- **`guia_entrevista.pdf`**: Preguntas base orientadas a descubrir metas blandas, obstáculos y requerimientos. Síntesis de los hallazgos comunes y puntos críticos detectados tras las sesiones.
+- **`Entrevista-Distribucion.pdf`**: Preguntas base orientadas a descubrir metas blandas, obstáculos y requerimientos. Síntesis de los hallazgos comunes y puntos críticos detectados tras las sesiones.
+- **`Entrevista-Distribucion.pdf`**: Preguntas base orientadas a descubrir metas blandas, obstáculos y requerimientos. Síntesis de los hallazgos comunes y puntos críticos detectados tras las sesiones.
 - **`README.md`**: Descripcion del directorio 
 
 ## Buenas Prácticas
