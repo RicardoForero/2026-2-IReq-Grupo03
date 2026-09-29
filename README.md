@@ -8,6 +8,8 @@ Alinear al equipo de trabajo y a los principales interesados (*stakeholders*) en
 ## Contenido del Directorio
 - **`Plan de kickoff.pdf`**: Estructura de tiempos y temas a tratar durante la reunión de inicio.
 - **`acta_constitucion.md`**: Registro de acuerdos, decisiones clave y compromisos. Definición preliminar de lo que incluye y no incluye el proyecto.
+- **`Identificacion_Stakeholders_Matriz_Poder_Interes_SICIRD.pdf`**: Identificacion de interesados stakeholders e identificacion de inters y poder con la matriz de Mendelow.
+- **`README.md`**: Descripcion del directorio 
 
 ## Pasos Siguientes
 1. Revisar la agenda con el patrocinador del proyecto.
