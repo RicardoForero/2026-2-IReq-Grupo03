@@ -1,0 +1,18 @@
+@startuml AD-CU03-CrearEntrega
+title Diagrama de Actividades · CU-04 Crear Entrega
+|Jefe / Auxiliar de Bodega|
+start
+:Inicia la creación de una nueva entrega;
+:Ejecuta "Seleccionar lote o conjunto de lotes" (CU-11);
+|Sistema SICIRD|
+:Verifica disponibilidad de los lotes en inventario;
+|Jefe / Auxiliar de Bodega|
+:Ejecuta "Asignar Cliente" (CU-12);
+|Sistema SICIRD|
+:Asocia el cliente seleccionado a los lotes de la entrega;
+|Jefe / Auxiliar de Bodega|
+:Confirma y guarda la entrega;
+|Sistema SICIRD|
+:Registra la nueva entrega en el sistema;
+stop
+@enduml

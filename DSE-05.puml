@@ -1,0 +1,30 @@
+@startuml DSE-CU05-GenerarRutaEntrega
+actor "Encargado de Despacho" as Despacho
+boundary "Interfaz SICIRD" as UI
+control "Gestor de Rutas" as Gestor
+database "Base de Datos" as BD
+
+Despacho -> UI: Inicia "Generar rutas de entrega"
+UI -> Gestor: Inicializar módulo de rutas
+
+note right of Despacho: Flujo de CU-14 (Seleccionar entregas)
+Gestor -> BD: Consultar entregas pendientes
+BD --> Gestor: Retornar lista de entregas
+Gestor --> UI: Mostrar entregas pendientes en pantalla
+Despacho -> UI: Selecciona las entregas para la ruta
+UI -> Gestor: Temporalizar entregas seleccionadas
+
+note right of Despacho: Flujo de CU-15 (Seleccionar transporte)
+Gestor -> BD: Consultar unidades de transporte disponibles
+BD --> Gestor: Retornar vehículos y conductores
+Gestor --> UI: Mostrar unidades disponibles
+Despacho -> UI: Asigna unidad de transporte
+UI -> Gestor: Vincular unidad a la ruta en creación
+
+Despacho -> UI: Presiona "Generar ruta"
+UI -> Gestor: Procesar creación de ruta
+Gestor -> BD: Persistir ruta (entregas + unidad de transporte)
+BD --> Gestor: Confirmación de guardado
+Gestor --> UI: Retornar estado de éxito
+UI --> Despacho: Mostrar mensaje "Ruta generada exitosamente"
+@enduml

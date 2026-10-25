@@ -1,0 +1,30 @@
+@startuml DSE-CU04-CrearEntrega
+
+actor "Jefe / Auxiliar de Bodega" as Bodega
+boundary "Interfaz SICIRD" as UI
+control "Gestor de Entregas" as Gestor
+database "Base de Datos" as BD
+
+Bodega -> UI: Selecciona "Crear nueva entrega"
+UI -> Gestor: Inicializar módulo de entrega
+Gestor --> UI: Mostrar formulario
+
+note right of Bodega: Flujo de CU-11 (Seleccionar lote)
+Bodega -> UI: Busca y selecciona lote(s)
+UI -> Gestor: Validar lote(s)
+Gestor -> BD: Consultar disponibilidad
+BD --> Gestor: Retornar lotes disponibles
+Gestor --> UI: Confirmar selección en pantalla
+
+note right of Bodega: Flujo de CU-12 (Asignar Cliente)
+Bodega -> UI: Busca y asigna cliente objetivo
+UI -> Gestor: Vincular cliente a la entrega provisional
+Gestor --> UI: Mostrar datos del cliente
+
+Bodega -> UI: Presiona "Guardar Entrega"
+UI -> Gestor: Procesar solicitud de guardado
+Gestor -> BD: Persistir datos de la entrega, lotes y cliente
+BD --> Gestor: Confirmación de registro exitoso
+Gestor --> UI: Retornar estado de éxito
+UI --> Bodega: Mostrar mensaje "Entrega creada exitosamente"
+@enduml
