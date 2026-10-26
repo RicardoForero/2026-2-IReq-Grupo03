@@ -6,14 +6,19 @@ Este documento registra la participación individual de cada integrante del equi
 
 ## Sesión 1: Kick-off y Acta de Constitución
 
-* **Fecha de entrega:** 27 de septiembre de 2026
+* **Fecha de entrega:** 28 de septiembre de 2026
 
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
 | :--- | :--- | :--- | :--- |
 | **Yisel Alejandra Matabajoy Delgado** | Redaccion de guion y plan de kickoff | PR `#1` | Diego Leonardo Cholo Largo |
 | **Diego Leonardo Cholo Largo** | Identificación de stakeholders y matriz de poder e interés. | PR `#2` | Yisel Alejandra Matabajoy Delgado |
+<<<<<<< HEAD
 | **Keiner Alberto Carvajal** | Redacción y envio de acta de constitucion. | PR `#3` | Ricardo Forero Ortiz |
 | **Ricardo Forero Ortiz** | Estructuración del repositorio, creación de `README.md`, `CONTRIBUCIONES.md` y revisión final. | Added Contribuciones and readme files on branch main `#4` | Keiner Alberto Carvaja |
+=======
+| **Ricardo Forero Ortiz** | Redacción y envio de acta de constitucion. | PR `#3` | Yisel Alejandra Matabajoy Delgado |
+| **Ricardo Forero Ortiz** | Estructuración del repositorio, creación de `README.md`, `CONTRIBUCIONES.md` y revisión final. | PR `#4` | Keiner Alberto Carvajal |
+>>>>>>> 4750dd3747e0a3e68fd3c36db57ee726639c769e
 
 ---
 
@@ -23,8 +28,13 @@ Este documento registra la participación individual de cada integrante del equi
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
 | :--- | :--- | :--- | :--- |
 | **Diego Leonardo Cholo Largo** | Redaccion e implementacion de la entrevista de ventas. | PR `#1` | Yisel Alejandra Matabajoy Delgado |
+<<<<<<< HEAD
 | **Keiner Alberto Carvajal, Yisel Alejandra Matabajoy Delgado** | Redaccion e implementacion de la entrevista de distribucion. | PR `#2` | Diego Leonardo Cholo Largo |
 | **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. |  | Keiner Alberto Carvaja |
+=======
+| **Keiner Alberto Carvajal** | Redaccion e implementacion de la entrevista de distribucion. | PR `#2` | Diego Leonardo Cholo Largo |
+| **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. | *[Pendiente]* | Keiner Alberto Carvajal |
+>>>>>>> 4750dd3747e0a3e68fd3c36db57ee726639c769e
 
 ---
 
@@ -38,7 +48,7 @@ Este documento registra la participación individual de cada integrante del equi
 | **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. |  | Keiner Alberto Carvaja |
 
 
-## Sesión 3: Especificación de Requisitos
+## Sesión 4: Priorizacion
 **Fecha de entrega:** 26 de septiembre de 2026
 
 
