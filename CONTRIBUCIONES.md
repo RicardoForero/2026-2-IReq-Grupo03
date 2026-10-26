@@ -39,7 +39,7 @@ Este documento registra la participación individual de cada integrante del equi
 
 
 ## Sesión 3: Especificación de Requisitos
-* **Fecha de entrega:** 26 de septiembre de 2026
+**Fecha de entrega:** 26 de septiembre de 2026
 
 
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
