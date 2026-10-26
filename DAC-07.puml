@@ -1,0 +1,25 @@
+@startuml
+title Diagrama de Actividades (TO-BE) · CU-07: Generar reporte de trazabilidad INVIMA (SICIRD)
+
+|Responsable de Calidad|
+start
+:Seleccionar opción de generación de reporte INVIMA;
+:Ingresar parámetros de búsqueda (Rango de fechas, lote o producto);
+
+|Sistema SICIRD|
+:Validar privilegios del rol y parámetros de entrada;
+:Consultar historial de ingresos, almacenamiento y entregas en campo;
+if (¿Se encuentran registros para los parámetros?) then ([sí])
+  :Consolidar información de trazabilidad sanitaria;
+  :Generar archivo de reporte (PDF / Excel homologado INVIMA);
+  |Responsable de Calidad|
+  :Descargar y visualizar el reporte de trazabilidad;
+  stop
+else ([no])
+  |Sistema SICIRD|
+  :Informar ausencia de registros para el filtro seleccionado;
+  |Responsable de Calidad|
+  :Modificar parámetros de búsqueda;
+  detach
+endif
+@enduml
