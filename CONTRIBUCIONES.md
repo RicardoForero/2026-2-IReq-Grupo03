@@ -23,7 +23,7 @@ Este documento registra la participación individual de cada integrante del equi
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
 | :--- | :--- | :--- | :--- |
 | **Ricardo Forero Ortiz** | Numeral  6 | | Keiner Alberto Carvajal |
-| **Diego Leonardo Cholo Largo** | Numeral 7, 8, 9 y 10 | *[Pendiente]* | Yisel Alejandra Matabajoy Delgado |
+| **Diego Leonardo Cholo Largo** | Numeral 7, 8, 9 y 10 | PR `#17` | Ricardo Forero Ortiz |
 | **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. | | Keiner Alberto Carvajal |
 
 ## Unidad 5: Análisis de requisitos con UML
@@ -32,7 +32,7 @@ Este documento registra la participación individual de cada integrante del equi
 | :--- | :--- | :--- | :--- |
 | **Yisel Alejandra Matabajoy Delgado** | Diagramas de secuencia y actividades CU-02 y CU-03 . | PR `#10` | Ricardo Forero Ortiz |
 | **Keiner Alberto Carvajal** | Diagramas de secuencia CU-04 y CU-05. | PR `#11` | Diego Leonardo Cholo Largo |
-| **Diego Leonardo Cholo Largo** | Diagramas de secuencia y de actividades CU-06 y CU-07. | PR `#12` | Yisel Alejandra Matabajoy Delgado |
+| **Diego Leonardo Cholo Largo** | Diagramas de secuencia y de actividades CU-06 y CU-07. | PR `#12` | Ricardo Forero Ortiz |
 | **Ricardo Forero Ortiz** | Numeral 11, 14 y 15 y complementar los demas | | Keiner Alberto Carvajal |
 | **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. | | Keiner Alberto Carvajal |
 
@@ -58,5 +58,5 @@ Este documento registra la participación individual de cada integrante del equi
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
 | :--- | :--- | :--- | :--- |
 | **Keiner Alberto Carvajal** | Numerales 26, 27 y 28 | PR `#15` | Yisel Alejandra Matabajoy Delgado |
-| **Diego Leonardo Cholo Largo** | Numerales 29 y 30. | *[Pendiente]* | Yisel Alejandra Matabajoy Delgado |
+| **Diego Leonardo Cholo Largo** | Numerales 29 y 30. | PR `#17` | Ricardo Forero Ortiz |
 | **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. | Keiner Alberto Carvaja | Keiner Alberto Carvajal |
