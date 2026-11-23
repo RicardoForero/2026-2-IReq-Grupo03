@@ -1,0 +1,1237 @@
+{
+  "meta": {
+    "codigo": "SRS-SICIRD-001",
+    "titulo": "Sistema de Control de Inventarios, Rutas y Distribución (SICIRD) — La Tradición",
+    "version": "1.0",
+    "linea_base": "LB-1.0",
+    "etiqueta_git": "srs-v1.0",
+    "fecha": "2026-11-22",
+    "estado": "Congelada para Desarrollo y Pruebas",
+    "cliente": "Productos Alimenticios La Tradición (Tunja, Boyacá)",
+    "equipo": [
+      "Keiner Alberto Carvajal",
+      "Diego Leonardo Cholo Largo",
+      "Ricardo Forero Ortiz",
+      "Yisel Matabajoy"
+    ]
+  },
+  "necesidades_negocio": [
+    {
+      "id": "NI-01",
+      "descripcion": "Eliminar pérdidas económicas y sanitarias por despacho de lotes vencidos o próximos a vencer."
+    },
+    {
+      "id": "NI-02",
+      "descripcion": "Garantizar la cadena de frío y trazabilidad completa ante auditorías del INVIMA en menos de 2 minutos."
+    },
+    {
+      "id": "NI-03",
+      "descripcion": "Optimizar la asignación de carga vehicular y el registro de entregas/devoluciones en zonas sin conectividad."
+    }
+  ],
+  "metas_proyecto": [
+    {
+      "id": "G-01",
+      "ni_id": "NI-01",
+      "descripcion": "Aplicar asignación estricta FEFO con excepciones auditadas exclusivamente por el Jefe de Bodega."
+    },
+    {
+      "id": "G-02",
+      "ni_id": "NI-01",
+      "descripcion": "Automatizar alertas tempranas y bloqueo sanitario preventivo por semaforización de vencimiento."
+    },
+    {
+      "id": "G-03",
+      "ni_id": "NI-02",
+      "descripcion": "Registrar temperatura, registro sanitario INVIMA y trazabilidad inmutable desde recepción hasta entrega."
+    },
+    {
+      "id": "G-04",
+      "ni_id": "NI-03",
+      "descripcion": "Controlar capacidad vehicular (kg y m3) y operar entregas/devoluciones móviles offline con cifrado."
+    }
+  ],
+  "historias_usuario": [
+    {
+      "id": "HU-01",
+      "g_id": "G-03",
+      "titulo": "Ingreso y clasificación térmica de lotes en recepción",
+      "prioridad": "Must",
+      "iteracion": 1
+    },
+    {
+      "id": "HU-02",
+      "g_id": "G-01",
+      "titulo": "Asignación FEFO automática y excepción controlada por Jefe de Bodega",
+      "prioridad": "Must",
+      "iteracion": 1
+    },
+    {
+      "id": "HU-03",
+      "g_id": "G-02",
+      "titulo": "Semáforo de vencimientos y bloqueo sanitario/cuarentena",
+      "prioridad": "Must",
+      "iteracion": 2
+    },
+    {
+      "id": "HU-04",
+      "g_id": "G-04",
+      "titulo": "Secuenciación de rutas y validación de capacidad vehicular",
+      "prioridad": "Must",
+      "iteracion": 3
+    },
+    {
+      "id": "HU-05",
+      "g_id": "G-04",
+      "titulo": "Registro móvil offline de entregas y rechazos en punto de venta",
+      "prioridad": "Must",
+      "iteracion": 3
+    },
+    {
+      "id": "HU-06",
+      "g_id": "G-04",
+      "titulo": "Integración IoT/GPS de telemetría térmica en vivo",
+      "prioridad": "Won't (Fase 2)",
+      "iteracion": null,
+      "estado": "Postergada Fase 2"
+    },
+    {
+      "id": "HU-07",
+      "g_id": "G-03",
+      "titulo": "Consulta bidireccional de trazabilidad y acta INVIMA",
+      "prioridad": "Must",
+      "iteracion": 2
+    },
+    {
+      "id": "HU-08",
+      "g_id": "G-02",
+      "titulo": "Notificación inmediata de lotes en estado crítico",
+      "prioridad": "Could",
+      "iteracion": 2,
+      "pendiente": "PD-09"
+    }
+  ],
+  "casos_uso": [
+    {
+      "id": "CU-01",
+      "hu_id": "HU-01",
+      "nombre": "Registrar ingreso de lote de proveedor"
+    },
+    {
+      "id": "CU-02",
+      "hu_id": "HU-01",
+      "nombre": "Validar temperatura de recepción y clasificar lote"
+    },
+    {
+      "id": "CU-03",
+      "hu_id": "HU-01",
+      "nombre": "Generar código único de lote e historial inicial"
+    },
+    {
+      "id": "CU-04",
+      "hu_id": "HU-02",
+      "nombre": "Asignar lotes automáticamente bajo criterio FEFO"
+    },
+    {
+      "id": "CU-05",
+      "hu_id": "HU-02",
+      "nombre": "Autorizar excepción FEFO con motivo auditado (SC-01)"
+    },
+    {
+      "id": "CU-06",
+      "hu_id": "HU-03",
+      "nombre": "Calcular semáforo diario de vencimiento de inventario"
+    },
+    {
+      "id": "CU-07",
+      "hu_id": "HU-03",
+      "nombre": "Bloquear lote vencido o en cuarentena sanitaria"
+    },
+    {
+      "id": "CU-08",
+      "hu_id": "HU-08",
+      "nombre": "Emitir alerta temprana de riesgo de vencimiento"
+    },
+    {
+      "id": "CU-09",
+      "hu_id": "HU-04",
+      "nombre": "Secuenciar ruta de despacho por zona geográfica"
+    },
+    {
+      "id": "CU-10",
+      "hu_id": "HU-04",
+      "nombre": "Validar capacidad máxima de peso y volumen del vehículo"
+    },
+    {
+      "id": "CU-11",
+      "hu_id": "HU-05",
+      "nombre": "Registrar entrega total o parcial en punto de venta"
+    },
+    {
+      "id": "CU-12",
+      "hu_id": "HU-05",
+      "nombre": "Registrar rechazo o devolución parcial con causal"
+    },
+    {
+      "id": "CU-13",
+      "hu_id": "HU-05",
+      "nombre": "Sincronizar cola local cifrada al recuperar red"
+    },
+    {
+      "id": "CU-14",
+      "hu_id": "HU-07",
+      "nombre": "Consultar trazabilidad completa por lote o cliente"
+    },
+    {
+      "id": "CU-15",
+      "hu_id": "HU-07",
+      "nombre": "Exportar acta oficial de trazabilidad INVIMA"
+    }
+  ],
+  "requisitos_funcionales": [
+    {
+      "id": "RF-001",
+      "tipo": "padre",
+      "hu_id": "HU-01",
+      "cu_id": "CU-01",
+      "titulo": "Gestión de recepción y trazabilidad de entrada",
+      "version": "1.0"
+    },
+    {
+      "id": "RF-001.1",
+      "tipo": "atomico",
+      "padre_id": "RF-001",
+      "hu_id": "HU-01",
+      "cu_id": "CU-01",
+      "titulo": "Registro de datos maestros y sanitarios del lote",
+      "reglas": [
+        "RN-01"
+      ],
+      "pantallas": [
+        "P-04"
+      ],
+      "mensajes": [
+        "M-01",
+        "M-02"
+      ],
+      "criterios": [
+        "AC-01",
+        "AC-02"
+      ],
+      "verificacion": [
+        "CP-001",
+        "IN-01"
+      ],
+      "pendientes": [
+        "PD-01"
+      ],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-001.2",
+      "tipo": "atomico",
+      "padre_id": "RF-001",
+      "hu_id": "HU-01",
+      "cu_id": "CU-02",
+      "titulo": "Validación de rango térmico y rechazo en recepción",
+      "reglas": [
+        "RN-02"
+      ],
+      "pantallas": [
+        "P-04"
+      ],
+      "mensajes": [
+        "M-03",
+        "M-04"
+      ],
+      "criterios": [
+        "AC-03",
+        "AC-04"
+      ],
+      "verificacion": [
+        "CP-001",
+        "CP-002"
+      ],
+      "pendientes": [],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-001.3",
+      "tipo": "atomico",
+      "padre_id": "RF-001",
+      "hu_id": "HU-01",
+      "cu_id": "CU-03",
+      "titulo": "Generación de identificador único e inmutable de lote",
+      "reglas": [
+        "RN-01",
+        "RN-14"
+      ],
+      "pantallas": [
+        "P-04"
+      ],
+      "mensajes": [
+        "M-01"
+      ],
+      "criterios": [
+        "AC-01",
+        "AC-05"
+      ],
+      "verificacion": [
+        "CP-001",
+        "CP-011"
+      ],
+      "pendientes": [],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-002",
+      "tipo": "padre",
+      "hu_id": "HU-02",
+      "cu_id": "CU-04",
+      "titulo": "Asignación de inventario por principio FEFO",
+      "version": "1.0"
+    },
+    {
+      "id": "RF-002.1",
+      "tipo": "atomico",
+      "padre_id": "RF-002",
+      "hu_id": "HU-02",
+      "cu_id": "CU-04",
+      "titulo": "Selección automática estricta por fecha de vencimiento más próxima",
+      "reglas": [
+        "RN-06",
+        "RN-08"
+      ],
+      "pantallas": [
+        "P-05",
+        "P-06"
+      ],
+      "mensajes": [
+        "M-10",
+        "M-11"
+      ],
+      "criterios": [
+        "AC-06",
+        "AC-07"
+      ],
+      "verificacion": [
+        "CP-003"
+      ],
+      "pendientes": [],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-002.2",
+      "tipo": "atomico",
+      "padre_id": "RF-002",
+      "hu_id": "HU-02",
+      "cu_id": "CU-05",
+      "titulo": "Excepción FEFO controlada con autorización exclusiva de Jefe de Bodega",
+      "reglas": [
+        "RN-07",
+        "RN-14"
+      ],
+      "pantallas": [
+        "P-06"
+      ],
+      "mensajes": [
+        "M-12",
+        "M-13"
+      ],
+      "criterios": [
+        "AC-08",
+        "AC-09"
+      ],
+      "verificacion": [
+        "CP-004",
+        "CP-012"
+      ],
+      "pendientes": [],
+      "version": "1.2",
+      "sc_aplicada": "SC-01"
+    },
+    {
+      "id": "RF-003",
+      "tipo": "padre",
+      "hu_id": "HU-03",
+      "cu_id": "CU-06",
+      "titulo": "Control sanitario de vigencia y cuarentena",
+      "version": "1.0"
+    },
+    {
+      "id": "RF-003.1",
+      "tipo": "atomico",
+      "padre_id": "RF-003",
+      "hu_id": "HU-03",
+      "cu_id": "CU-06",
+      "titulo": "Semaforización diaria de días remanentes de vida útil",
+      "reglas": [
+        "RN-03",
+        "RN-12"
+      ],
+      "pantallas": [
+        "P-07"
+      ],
+      "mensajes": [
+        "M-05",
+        "M-06"
+      ],
+      "criterios": [
+        "AC-05",
+        "AC-10"
+      ],
+      "verificacion": [
+        "CP-005",
+        "CP-010"
+      ],
+      "pendientes": [
+        "PD-09"
+      ],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-003.2",
+      "tipo": "atomico",
+      "padre_id": "RF-003",
+      "hu_id": "HU-03",
+      "cu_id": "CU-07",
+      "titulo": "Bloqueo automático de lotes vencidos y gestión de cuarentena",
+      "reglas": [
+        "RN-04",
+        "RN-05",
+        "RN-13"
+      ],
+      "pantallas": [
+        "P-07"
+      ],
+      "mensajes": [
+        "M-07",
+        "M-08",
+        "M-09"
+      ],
+      "criterios": [
+        "AC-11",
+        "AC-12"
+      ],
+      "verificacion": [
+        "CP-005"
+      ],
+      "pendientes": [
+        "PD-06"
+      ],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-004",
+      "tipo": "padre",
+      "hu_id": "HU-04",
+      "cu_id": "CU-09",
+      "titulo": "Planificación de rutas y control de carga",
+      "version": "1.0"
+    },
+    {
+      "id": "RF-004.1",
+      "tipo": "atomico",
+      "padre_id": "RF-004",
+      "hu_id": "HU-04",
+      "cu_id": "CU-09",
+      "titulo": "Agrupación y secuenciación de pedidos por ruta",
+      "reglas": [
+        "RN-09"
+      ],
+      "pantallas": [
+        "P-08"
+      ],
+      "mensajes": [
+        "M-14"
+      ],
+      "criterios": [
+        "AC-13"
+      ],
+      "verificacion": [
+        "DE-01"
+      ],
+      "pendientes": [
+        "PD-04"
+      ],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-004.2",
+      "tipo": "atomico",
+      "padre_id": "RF-004",
+      "hu_id": "HU-04",
+      "cu_id": "CU-10",
+      "titulo": "Validación de capacidad nominal de peso (kg) y volumen (m3)",
+      "reglas": [
+        "RN-09"
+      ],
+      "pantallas": [
+        "P-08"
+      ],
+      "mensajes": [
+        "M-14"
+      ],
+      "criterios": [
+        "AC-14",
+        "AC-15"
+      ],
+      "verificacion": [
+        "CP-006"
+      ],
+      "pendientes": [
+        "PD-04"
+      ],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-005",
+      "tipo": "padre",
+      "hu_id": "HU-05",
+      "cu_id": "CU-11",
+      "titulo": "Ejecución de entrega y devoluciones en ruta",
+      "version": "1.0"
+    },
+    {
+      "id": "RF-005.1",
+      "tipo": "atomico",
+      "padre_id": "RF-005",
+      "hu_id": "HU-05",
+      "cu_id": "CU-11",
+      "titulo": "Registro móvil de entrega total o parcial con evidencia",
+      "reglas": [
+        "RN-10",
+        "RN-14"
+      ],
+      "pantallas": [
+        "P-01",
+        "P-02"
+      ],
+      "mensajes": [
+        "M-15"
+      ],
+      "criterios": [
+        "AC-16",
+        "AC-17",
+        "AC-23"
+      ],
+      "verificacion": [
+        "CP-007",
+        "CP-013"
+      ],
+      "pendientes": [
+        "PD-05"
+      ],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-005.2",
+      "tipo": "atomico",
+      "padre_id": "RF-005",
+      "hu_id": "HU-05",
+      "cu_id": "CU-12",
+      "titulo": "Registro de rechazos y retorno preventivo a bodega",
+      "reglas": [
+        "RN-11",
+        "RN-14"
+      ],
+      "pantallas": [
+        "P-03"
+      ],
+      "mensajes": [
+        "M-15"
+      ],
+      "criterios": [
+        "AC-18",
+        "AC-24"
+      ],
+      "verificacion": [
+        "CP-008"
+      ],
+      "pendientes": [
+        "PD-03"
+      ],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-006",
+      "tipo": "padre",
+      "hu_id": "HU-07",
+      "cu_id": "CU-14",
+      "titulo": "Trazabilidad sanitaria bidireccional y auditoría INVIMA",
+      "version": "1.0"
+    },
+    {
+      "id": "RF-006.1",
+      "tipo": "atomico",
+      "padre_id": "RF-006",
+      "hu_id": "HU-07",
+      "cu_id": "CU-14",
+      "titulo": "Consulta bidireccional de cadena de custodia por lote",
+      "reglas": [
+        "RN-01",
+        "RN-14",
+        "RN-15"
+      ],
+      "pantallas": [
+        "P-09"
+      ],
+      "mensajes": [
+        "M-01"
+      ],
+      "criterios": [
+        "AC-19",
+        "AC-20",
+        "AC-21"
+      ],
+      "verificacion": [
+        "CP-009",
+        "CP-011",
+        "IN-02"
+      ],
+      "pendientes": [],
+      "version": "1.0"
+    },
+    {
+      "id": "RF-006.2",
+      "tipo": "atomico",
+      "padre_id": "RF-006",
+      "hu_id": "HU-07",
+      "cu_id": "CU-15",
+      "titulo": "Generación de reporte oficial de trazabilidad INVIMA",
+      "reglas": [
+        "RN-14",
+        "RN-15"
+      ],
+      "pantallas": [
+        "P-09"
+      ],
+      "mensajes": [
+        "M-01"
+      ],
+      "criterios": [
+        "AC-22"
+      ],
+      "verificacion": [
+        "DE-02"
+      ],
+      "pendientes": [
+        "PD-07",
+        "PD-08"
+      ],
+      "version": "1.0"
+    }
+  ],
+  "requisitos_no_funcionales": [
+    {
+      "id": "RNF-001",
+      "hu_id": "HU-07",
+      "cu_id": "CU-14",
+      "categoria": "Desempeño",
+      "titulo": "Tiempo de respuesta de trazabilidad < 2 minutos",
+      "umbral": "< 120 s (objetivo p95 <= 5 s)",
+      "reglas": [
+        "RN-15"
+      ],
+      "pantallas": [
+        "P-09"
+      ],
+      "criterios": [
+        "AC-20",
+        "AC-25"
+      ],
+      "verificacion": [
+        "CP-009",
+        "AN-01"
+      ],
+      "pendientes": []
+    },
+    {
+      "id": "RNF-002",
+      "hu_id": "HU-02",
+      "cu_id": "CU-05",
+      "categoria": "Seguridad",
+      "titulo": "Control de acceso basado en roles (RBAC) e inmutabilidad de auditoría",
+      "umbral": "100% acciones críticas autenticadas y auditadas",
+      "reglas": [
+        "RN-07",
+        "RN-14"
+      ],
+      "pantallas": [
+        "P-00",
+        "P-06"
+      ],
+      "criterios": [
+        "AC-09",
+        "AC-21"
+      ],
+      "verificacion": [
+        "CP-011",
+        "CP-012"
+      ],
+      "pendientes": []
+    },
+    {
+      "id": "RNF-003",
+      "hu_id": "HU-05",
+      "cu_id": "CU-13",
+      "categoria": "Disponibilidad / Offline",
+      "titulo": "Persistencia local cifrada (AES-256) y sincronización idempotente",
+      "umbral": "0% pérdida de transacciones sin red",
+      "reglas": [
+        "RN-10",
+        "RN-14"
+      ],
+      "pantallas": [
+        "P-01",
+        "P-02",
+        "P-03"
+      ],
+      "criterios": [
+        "AC-17",
+        "AC-23"
+      ],
+      "verificacion": [
+        "CP-007",
+        "CP-013"
+      ],
+      "pendientes": [
+        "PD-05"
+      ]
+    },
+    {
+      "id": "RNF-004",
+      "hu_id": "HU-07",
+      "cu_id": "CU-14",
+      "categoria": "Retención y Auditoría",
+      "titulo": "Conservación histórica de trazabilidad sanitaria",
+      "umbral": ">= 5 años de retención inmutable",
+      "reglas": [
+        "RN-14",
+        "RN-15"
+      ],
+      "pantallas": [
+        "P-09"
+      ],
+      "criterios": [
+        "AC-21"
+      ],
+      "verificacion": [
+        "IN-02"
+      ],
+      "pendientes": []
+    }
+  ],
+  "reglas_negocio": [
+    {
+      "id": "RN-01",
+      "estado": "Activa",
+      "nombre": "Obligatoriedad de registro sanitario INVIMA vigente y lote único en ingreso"
+    },
+    {
+      "id": "RN-02",
+      "estado": "Activa",
+      "nombre": "Rangos térmicos estrictos por familia (Refrigerados: 0°C a 4°C; Congelados: <= -18°C)"
+    },
+    {
+      "id": "RN-03",
+      "estado": "Activa",
+      "nombre": "Umbrales de semáforo: Verde (> 15 días), Amarillo (6 a 15 días), Rojo (1 a 5 días), Vencido (<= 0 días)"
+    },
+    {
+      "id": "RN-04",
+      "estado": "Activa",
+      "nombre": "Bloqueo automático de despacho para lotes en estado Vencido o Cuarentena"
+    },
+    {
+      "id": "RN-05",
+      "estado": "Activa",
+      "nombre": "Liberación de cuarentena exclusiva por Coordinador de Calidad con dictamen firmado"
+    },
+    {
+      "id": "RN-06",
+      "estado": "Activa",
+      "nombre": "Priorización automática FEFO (First Expired, First Out) sobre lotes en estado Apto"
+    },
+    {
+      "id": "RN-07",
+      "estado": "Activa",
+      "version": "1.1",
+      "nombre": "Excepción FEFO autorizada únicamente por Jefe de Bodega (PER-02b) con motivo de catálogo cerrado y justificación >= 20 caracteres (SC-01)"
+    },
+    {
+      "id": "RN-08",
+      "estado": "Activa",
+      "nombre": "Prohibición de fraccionamiento no autorizado de unidades selladas sin orden de alistamiento"
+    },
+    {
+      "id": "RN-09",
+      "estado": "Activa",
+      "nombre": "Bloqueo de despacho si peso acumulado > 100% kg nominal o volumen > 100% m3 nominal del vehículo"
+    },
+    {
+      "id": "RN-10",
+      "estado": "Activa",
+      "nombre": "Requerimiento de firma digital/evidencia y marca de tiempo UTC en cada entrega en ruta"
+    },
+    {
+      "id": "RN-11",
+      "estado": "Activa",
+      "nombre": "Clasificación preventiva 'En observación / Rechazado' para todo producto devuelto desde ruta"
+    },
+    {
+      "id": "RN-12",
+      "estado": "Activa",
+      "nombre": "Ejecución automática diaria del cálculo de semáforo a las 00:05 COT"
+    },
+    {
+      "id": "RN-13",
+      "estado": "Activa",
+      "nombre": "Notificación prioritaria en bandeja P-07 cuando un lote entra en franja Roja (<= 5 días)"
+    },
+    {
+      "id": "RN-14",
+      "estado": "Activa",
+      "nombre": "Bitácora inmutable (append-only) con usuario, rol, timestamp, IP/dispositivo y valor anterior/nuevo"
+    },
+    {
+      "id": "RN-15",
+      "estado": "Activa",
+      "nombre": "Trazabilidad bidireccional completa (hacia atrás: proveedor/materia prima; hacia adelante: cliente/ruta)"
+    },
+    {
+      "id": "RN-16",
+      "estado": "Postergada",
+      "nombre": "Lectura automática de báscula industrial e impresión térmica directa en recepción (SC-02 · Fase 2)"
+    }
+  ],
+  "pantallas": [
+    {
+      "id": "P-00",
+      "nombre": "Inicio de sesión y selección de rol"
+    },
+    {
+      "id": "P-01",
+      "nombre": "Móvil: Lista de entregas asignadas en ruta"
+    },
+    {
+      "id": "P-02",
+      "nombre": "Móvil: Confirmación de entrega total/parcial y firma"
+    },
+    {
+      "id": "P-03",
+      "nombre": "Móvil: Registro de rechazo y devolución en punto de venta"
+    },
+    {
+      "id": "P-04",
+      "nombre": "Web: Recepción de mercancía y control térmico"
+    },
+    {
+      "id": "P-05",
+      "nombre": "Web: Alistamiento de pedidos y asignación FEFO"
+    },
+    {
+      "id": "P-06",
+      "nombre": "Web: Modal de excepción FEFO controlada"
+    },
+    {
+      "id": "P-07",
+      "nombre": "Web: Tablero de semáforo de vencimientos y cuarentena"
+    },
+    {
+      "id": "P-08",
+      "nombre": "Web: Planificador de rutas y capacidad vehicular"
+    },
+    {
+      "id": "P-09",
+      "nombre": "Web: Consulta de trazabilidad y acta INVIMA"
+    }
+  ],
+  "mensajes": [
+    {
+      "id": "M-01",
+      "tipo": "Éxito",
+      "texto": "Lote {codigo_lote} registrado correctamente con trazabilidad inicial."
+    },
+    {
+      "id": "M-02",
+      "tipo": "Error",
+      "texto": "Registro sanitario INVIMA inválido o vencido. Ingreso bloqueado (RN-01)."
+    },
+    {
+      "id": "M-03",
+      "tipo": "Alerta",
+      "texto": "Temperatura fuera de rango ({temp}°C). Lote marcado en Cuarentena preventiva (RN-02)."
+    },
+    {
+      "id": "M-04",
+      "tipo": "Error",
+      "texto": "Desviación térmica crítica. Recepción rechazada conforme a protocolo sanitario."
+    },
+    {
+      "id": "M-05",
+      "tipo": "Info",
+      "texto": "Lote en estado Amarillo: quedan {dias} días para su fecha de vencimiento."
+    },
+    {
+      "id": "M-06",
+      "tipo": "Alerta",
+      "texto": "Lote en estado Rojo: atención prioritaria, vencimiento en {dias} días."
+    },
+    {
+      "id": "M-07",
+      "tipo": "Error",
+      "texto": "Operación denegada: el lote {codigo_lote} se encuentra VENCIDO (RN-04)."
+    },
+    {
+      "id": "M-08",
+      "tipo": "Error",
+      "texto": "Operación denegada: el lote {codigo_lote} está en CUARENTENA sanitaria (RN-04)."
+    },
+    {
+      "id": "M-09",
+      "tipo": "Éxito",
+      "texto": "Dictamen de Calidad registrado. Estado sanitario del lote actualizado."
+    },
+    {
+      "id": "M-10",
+      "tipo": "Info",
+      "texto": "Lote {codigo_lote} asignado automáticamente por prioridad FEFO (vence: {fecha})."
+    },
+    {
+      "id": "M-11",
+      "tipo": "Error",
+      "texto": "Stock apto insuficiente para cubrir la cantidad solicitada del producto."
+    },
+    {
+      "id": "M-12",
+      "tipo": "Error",
+      "texto": "Autorización denegada: solo el Jefe de Bodega puede aprobar excepciones FEFO (RN-07)."
+    },
+    {
+      "id": "M-13",
+      "tipo": "Alerta",
+      "texto": "Excepción FEFO registrada bajo auditoría. Motivo: {motivo_catalogo}."
+    },
+    {
+      "id": "M-14",
+      "tipo": "Error",
+      "texto": "Capacidad vehicular excedida ({porcentaje}%). Ajuste la carga antes de despachar (RN-09)."
+    },
+    {
+      "id": "M-15",
+      "tipo": "Info",
+      "texto": "Transacción guardada en cola local cifrada. Pendiente de sincronización."
+    }
+  ],
+  "criterios_aceptacion": [
+    {
+      "id": "AC-01",
+      "rf_id": "RF-001.1",
+      "titulo": "Ingreso exitoso de lote refrigerado con registro INVIMA vigente"
+    },
+    {
+      "id": "AC-02",
+      "rf_id": "RF-001.1",
+      "titulo": "Bloqueo de ingreso por registro sanitario INVIMA vencido o inexistente"
+    },
+    {
+      "id": "AC-03",
+      "rf_id": "RF-001.2",
+      "titulo": "Aceptación de lote congelado dentro de rango térmico (<= -18°C)"
+    },
+    {
+      "id": "AC-04",
+      "rf_id": "RF-001.2",
+      "titulo": "Ingreso a cuarentena automática por desviación de temperatura"
+    },
+    {
+      "id": "AC-05",
+      "rf_id": "RF-003.1",
+      "titulo": "Clasificación inicial en semáforo según días remanentes al ingreso"
+    },
+    {
+      "id": "AC-06",
+      "rf_id": "RF-002.1",
+      "titulo": "Asignación automática FEFO seleccionando el lote apto más próximo a vencer"
+    },
+    {
+      "id": "AC-07",
+      "rf_id": "RF-002.1",
+      "titulo": "Exclusión de lotes vencidos o en cuarentena durante el cálculo FEFO"
+    },
+    {
+      "id": "AC-08",
+      "rf_id": "RF-002.2",
+      "titulo": "Excepción FEFO aprobada por Jefe de Bodega con motivo cerrado y auditoría"
+    },
+    {
+      "id": "AC-09",
+      "rf_id": "RF-002.2",
+      "titulo": "Rechazo de excepción FEFO intentada por Auxiliar o Coordinador sin rol PER-02b"
+    },
+    {
+      "id": "AC-10",
+      "rf_id": "RF-003.1",
+      "titulo": "Transición automática de semáforo Verde -> Amarillo -> Rojo en proceso diario"
+    },
+    {
+      "id": "AC-11",
+      "rf_id": "RF-003.2",
+      "titulo": "Bloqueo inmediato de despacho al alcanzar fecha de vencimiento (0 días)"
+    },
+    {
+      "id": "AC-12",
+      "rf_id": "RF-003.2",
+      "titulo": "Liberación de cuarentena exclusivamente por Coordinador de Calidad"
+    },
+    {
+      "id": "AC-13",
+      "rf_id": "RF-004.1",
+      "titulo": "Agrupación y ordenamiento de entregas por ruta asignada"
+    },
+    {
+      "id": "AC-14",
+      "rf_id": "RF-004.2",
+      "titulo": "Aprobación de despacho dentro del 100% de capacidad en kg y m3"
+    },
+    {
+      "id": "AC-15",
+      "rf_id": "RF-004.2",
+      "titulo": "Bloqueo de despacho al superar peso o volumen nominal del vehículo"
+    },
+    {
+      "id": "AC-16",
+      "rf_id": "RF-005.1",
+      "titulo": "Registro en línea de entrega total con firma digital y descuento de inventario"
+    },
+    {
+      "id": "AC-17",
+      "rf_id": "RF-005.1",
+      "titulo": "Captura offline de entrega parcial en zona sin cobertura con almacenamiento cifrado"
+    },
+    {
+      "id": "AC-18",
+      "rf_id": "RF-005.2",
+      "titulo": "Registro de rechazo parcial en punto de venta y marcación preventiva de retorno"
+    },
+    {
+      "id": "AC-19",
+      "rf_id": "RF-006.1",
+      "titulo": "Consulta de trazabilidad hacia atrás (cliente -> lote -> proveedor)"
+    },
+    {
+      "id": "AC-20",
+      "rf_id": "RF-006.1",
+      "titulo": "Consulta de trazabilidad hacia adelante (lote -> clientes) en menos de 2 minutos"
+    },
+    {
+      "id": "AC-21",
+      "rf_id": "RF-006.1",
+      "titulo": "Verificación de inmutabilidad de eventos en historial de trazabilidad"
+    },
+    {
+      "id": "AC-22",
+      "rf_id": "RF-006.2",
+      "titulo": "Exportación de reporte consolidado de trazabilidad para inspección INVIMA"
+    },
+    {
+      "id": "AC-23",
+      "rf_id": "RF-005.1",
+      "titulo": "Sincronización automática e idempotente al restablecer conexión móvil"
+    },
+    {
+      "id": "AC-24",
+      "rf_id": "RF-005.2",
+      "titulo": "Trazabilidad de unidades devueltas aisladas de inventario disponible"
+    },
+    {
+      "id": "AC-25",
+      "rf_id": "RNF-001",
+      "titulo": "Cumplimiento de latencia < 2 minutos bajo carga concurrente de auditoría"
+    }
+  ],
+  "casos_verificacion": [
+    {
+      "id": "CP-001",
+      "metodo": "Prueba",
+      "objetivo": "Recepción de lotes, validación INVIMA y clasificación térmica (RF-001.1..1.3)"
+    },
+    {
+      "id": "CP-002",
+      "metodo": "Prueba",
+      "objetivo": "Rechazo por desviación térmica crítica (RF-001.2)"
+    },
+    {
+      "id": "CP-003",
+      "metodo": "Prueba",
+      "objetivo": "Asignación automática FEFO y exclusión de no aptos (RF-002.1)"
+    },
+    {
+      "id": "CP-004",
+      "metodo": "Prueba",
+      "objetivo": "Flujo de excepción FEFO con motivo cerrado y bitácora (RF-002.2)"
+    },
+    {
+      "id": "CP-005",
+      "metodo": "Prueba",
+      "objetivo": "Semaforización diaria y bloqueo de vencidos/cuarentena (RF-003.1, RF-003.2)"
+    },
+    {
+      "id": "CP-006",
+      "metodo": "Prueba",
+      "objetivo": "Validación de límites de peso (kg) y volumen (m3) por vehículo (RF-004.2)"
+    },
+    {
+      "id": "CP-007",
+      "metodo": "Prueba",
+      "objetivo": "Entrega en ruta online/offline y cifrado local (RF-005.1, RNF-003)"
+    },
+    {
+      "id": "CP-008",
+      "metodo": "Prueba",
+      "objetivo": "Registro de rechazos en ruta y cuarentena preventiva (RF-005.2)"
+    },
+    {
+      "id": "CP-009",
+      "metodo": "Prueba",
+      "objetivo": "Consulta bidireccional de trazabilidad y medición de tiempo < 2 min (RF-006.1, RNF-001)"
+    },
+    {
+      "id": "CP-010",
+      "metodo": "Prueba",
+      "objetivo": "Generación de alertas tempranas en bandeja P-07 (RF-003.1, HU-08)"
+    },
+    {
+      "id": "CP-011",
+      "metodo": "Prueba",
+      "objetivo": "Inmutabilidad de bitácora de auditoría (RNF-002, RNF-004)"
+    },
+    {
+      "id": "CP-012",
+      "metodo": "Prueba",
+      "objetivo": "Control de permisos RBAC en excepción FEFO (RNF-002, RF-002.2)"
+    },
+    {
+      "id": "CP-013",
+      "metodo": "Prueba",
+      "objetivo": "Idempotencia en resincronización tras cortes intermitentes (RNF-003)"
+    },
+    {
+      "id": "IN-01",
+      "metodo": "Inspección",
+      "objetivo": "Inspección de estructura de catálogo local CR-01 y campos INVIMA (RF-001.1)"
+    },
+    {
+      "id": "IN-02",
+      "metodo": "Inspección",
+      "objetivo": "Inspección de esquema de retención histórica >= 5 años (RNF-004, RF-006.1)"
+    },
+    {
+      "id": "DE-01",
+      "metodo": "Demostración",
+      "objetivo": "Demostración de secuenciación de rutas en planificador P-08 (RF-004.1)"
+    },
+    {
+      "id": "DE-02",
+      "metodo": "Demostración",
+      "objetivo": "Demostración de exportación de acta oficial INVIMA (RF-006.2)"
+    },
+    {
+      "id": "AN-01",
+      "metodo": "Análisis",
+      "objetivo": "Análisis de índices y plan de ejecución de consultas de trazabilidad (RNF-001)"
+    }
+  ],
+  "pendientes_declarados": [
+    {
+      "id": "PD-01",
+      "elemento": "RF-001.1",
+      "descripcion": "Confirmar formato oficial de validación de registro sanitario INVIMA con Oficina Jurídica.",
+      "dueno": "Coordinador de Calidad / Oficina Jurídica",
+      "fecha_limite": "2026-11-30"
+    },
+    {
+      "id": "PD-02",
+      "elemento": "RF-002.2",
+      "descripcion": "Definir rol autorizador y catálogo de motivos de excepción FEFO (CERRADO por SC-01).",
+      "dueno": "Jefe de Bodega",
+      "fecha_limite": "2026-11-22",
+      "estado": "Cerrado"
+    },
+    {
+      "id": "PD-03",
+      "elemento": "RF-005.2",
+      "descripcion": "Definir flujo sanitario y contable de reingreso de devoluciones desde ruta.",
+      "dueno": "Coordinador de Calidad",
+      "fecha_limite": "2026-11-30"
+    },
+    {
+      "id": "PD-04",
+      "elemento": "RF-004.1 / RF-004.2",
+      "descripcion": "Definir reglas de zonificación Tunja/Boyacá y política oficial de sobrecupo.",
+      "dueno": "Encargado de Despacho / Gerencia",
+      "fecha_limite": "2026-12-02"
+    },
+    {
+      "id": "PD-05",
+      "elemento": "RF-005.1 / RNF-003",
+      "descripcion": "Confirmar plazo máximo legal de retención offline de datos de clientes.",
+      "dueno": "Área de TI / Oficina Jurídica",
+      "fecha_limite": "2026-12-02"
+    },
+    {
+      "id": "PD-06",
+      "elemento": "RF-003.2",
+      "descripcion": "Confirmar flujo de disposición final / destrucción de lotes vencidos.",
+      "dueno": "Coordinador de Calidad",
+      "fecha_limite": "2026-12-01"
+    },
+    {
+      "id": "PD-07",
+      "elemento": "RF-006.2",
+      "descripcion": "Entregar plantilla oficial de acta de trazabilidad exigida por INVIMA.",
+      "dueno": "Responsable de Calidad",
+      "fecha_limite": "2026-12-02"
+    },
+    {
+      "id": "PD-08",
+      "elemento": "RF-006.2",
+      "descripcion": "Aprobar librería estándar de generación PDF/CSV en arquitectura backend.",
+      "dueno": "Área de TI",
+      "fecha_limite": "2026-12-02"
+    },
+    {
+      "id": "PD-09",
+      "elemento": "HU-08 / RF-003.1",
+      "descripcion": "Confirmar canal externo (correo/SMS) y holgura de Sprint 2 para alertas.",
+      "dueno": "Gerencia General / Calidad",
+      "fecha_limite": "2026-12-01"
+    }
+  ],
+  "solicitudes_cambio": [
+    {
+      "id": "SC-01",
+      "titulo": "Restricción de excepción FEFO exclusivamente al Jefe de Bodega con catálogo cerrado",
+      "estado": "Aprobada",
+      "impacto": [
+        "RF-002.2",
+        "RN-07",
+        "P-06",
+        "AC-08",
+        "AC-09",
+        "CP-004",
+        "CP-012"
+      ]
+    },
+    {
+      "id": "SC-02",
+      "titulo": "Integración directa con báscula industrial e impresión automática de etiquetas en recepción",
+      "estado": "Diferida a Fase 2",
+      "impacto": [
+        "RN-16",
+        "P-04"
+      ]
+    }
+  ]
+}

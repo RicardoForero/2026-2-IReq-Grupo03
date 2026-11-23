@@ -1,0 +1,29 @@
+@startuml MOD-03_Estados_Lote_Sanitario
+title MOD-03 · Ciclo de Vida del Lote Sanitario (v1.0) — Confidencial · uso del proyecto
+hide empty description
+
+[*] --> EnRecepcion : CU-01 Registrar ingreso
+
+state EnRecepcion {
+  [*] --> VerificandoSoportes
+}
+
+EnRecepcion --> Disponible : Soporte INVIMA vigente y\ntemp. en rango (I-02 / I-05)
+EnRecepcion --> EnCuarentena : Desviación térmica o\nfalta certificado [RC-02]
+
+Disponible --> Reservado : Asignar a orden alistamiento\n(FEFO o DEC-01) [RC-05, DEC-03]
+Reservado --> Disponible : Cancelar orden alistamiento [DEC-03]
+Reservado --> Despachado : Confirmar cargue en Hoja de Ruta [CU-04]
+
+Disponible --> Vencido : Corte nocturno 00:05 COT\nfecha_vencimiento < hoy [RC-06]
+Reservado --> Vencido : Corte nocturno 00:05 COT\nfecha_vencimiento < hoy [RC-06]
+
+Despachado --> EnCuarentena : Rechazo en ruta por frío\no daño empaque [RC-13]
+Despachado --> [*] : Entrega conforme confirmada [CU-05]
+
+EnCuarentena --> Disponible : Dictamen liberación Calidad (I-02) [RC-04]
+EnCuarentena --> DadoDeBaja : Dictamen rechazo definitivo (I-02) [RC-04]
+Vencido --> DadoDeBaja : Acta destrucción sanitaria (I-02) [AV-02]
+
+DadoDeBaja --> [*]
+@enduml
