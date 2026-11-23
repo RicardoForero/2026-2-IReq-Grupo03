@@ -80,4 +80,4 @@ A continuación se clasifican las historias de usuario de la Sesión 3 (HU-01 a 
 
 ---
 
-> **Control de configuración en repositorio:** Este documento se almacena en `04-priorizacion/backlog-moscow.md` mediante Pull Request, con al menos un commit propio de cada integrante del equipo (`RicardoForero`, `Git-kriner2005`, `diegocholo-bli` y Yisel Matabajoy) y revisión cruzada aprobada antes de fusionar a la rama principal.
+> **Control de configuración en repositorio:** Este documento se almacena en `04-priorizacion/backlog-moscow.md` mediante Pull Request, con al menos un commit propio de cada integrante del equipo (`RicardoForero`, `kriner2005`, `diegocholo-bli` y Yiyi345) y revisión cruzada aprobada antes de fusionar a la rama principal.
