@@ -15,7 +15,7 @@ Este documento registra la participación individual de cada integrante del equi
 | **Diego Leonardo Cholo Largo** | Redaccion e implementacion de la entrevista de ventas. | PR `#6` | Yisel Alejandra Matabajoy Delgado |
 | **Keiner Alberto Carvajal** | Redaccion e implementacion de la entrevista de distribucion. | PR `#8` | Diego Leonardo Cholo Largo |
 | **Yisel Alejandra Matabajoy Delgado** | Construccion arbol de metas KAOS. | PR `#4`,  `#7` | Ricardo Forero Ortiz |
-| **Ricardo Forero Ortiz** |Numerales 3, 4 y 5 . | | Keiner Alberto Carvajal |
+| **Ricardo Forero Ortiz** | Numerales 3, 4 y 5 . | | Keiner Alberto Carvajal |
 | **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. | | Keiner Alberto Carvajal |
 
 ## Unidad 4: Estándares y especificación de requisitos
@@ -48,8 +48,8 @@ Este documento registra la participación individual de cada integrante del equi
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
 | :--- | :--- | :--- | :--- |
 | **Yisel Alejandra Matabajoy Delgado** | Numerales 21, 22, 23 y 24 | PR `#14` | Ricardo Forero Ortiz |
-| **Keiner Alberto Carvajal** | Numeral 25 | *[Pendiente]* | Yisel Alejandra Matabajoy Delgado |
-| **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. |  | Keiner Alberto Carvajal |
+| **Keiner Alberto Carvajal** | Numeral 25 | PR `#15` | Yisel Alejandra Matabajoy Delgado |
+| **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. | | Keiner Alberto Carvajal |
 
 ## Unidad 8: Proyecto en empresa real
 
