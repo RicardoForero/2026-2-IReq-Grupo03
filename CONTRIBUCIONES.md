@@ -31,9 +31,10 @@ Este documento registra la participación individual de cada integrante del equi
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
 | :--- | :--- | :--- | :--- |
 | **Yisel Alejandra Matabajoy Delgado** | Diagramas de secuencia y actividades CU-02 y CU-03 . | PR `#10` | Ricardo Forero Ortiz |
+| **Yisel Alejandra Matabajoy Delgado** | Documentos numeral 15. | PR `#18` | Ricardo Forero Ortiz |
 | **Keiner Alberto Carvajal** | Diagramas de secuencia CU-04 y CU-05. | PR `#11` | Diego Leonardo Cholo Largo |
 | **Diego Leonardo Cholo Largo** | Diagramas de secuencia y de actividades CU-06 y CU-07. | PR `#12` | Ricardo Forero Ortiz |
-| **Ricardo Forero Ortiz** | Numeral 11, 14 y 15 y complementar los demas | | Keiner Alberto Carvajal |
+| **Ricardo Forero Ortiz** | Diagramas Numeral 11, 14 y 15  | | Keiner Alberto Carvajal |
 | **Ricardo Forero Ortiz** | Estructuración del repositorio y revisión final. | | Keiner Alberto Carvajal |
 
 ## Unidad 6: Prototipado de interfaz gráfica de usuario
@@ -53,7 +54,7 @@ Este documento registra la participación individual de cada integrante del equi
 
 ## Unidad 8: Proyecto en empresa real
 
-* **Fecha de entrega:** 23 de noviembre de 2026
+* **Fecha de entrega:** 25 de noviembre de 2026
 
 | Integrante | Aporte / Tarea Realizada | Commit / PR | Revisor(a) |
 | :--- | :--- | :--- | :--- |
